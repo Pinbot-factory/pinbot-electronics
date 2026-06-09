@@ -1,5 +1,13 @@
 pinbot-carrier-backups/
 fp-info-cache
+fabrication-toolkit-options.json
 *.lck
-
+*.kicad_prl
+*.kicad_jobset
 .vscode
+
+.DS_Store
+__pycache__
+.antigravitycli
+.agents
+/sw_examples/datasheets

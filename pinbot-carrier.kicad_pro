@@ -3,6 +3,8 @@
     "3dviewports": [],
     "design_settings": {
       "defaults": {
+        "apply_defaults_to_fp_barcodes": false,
+        "apply_defaults_to_fp_dimensions": false,
         "apply_defaults_to_fp_fields": false,
         "apply_defaults_to_fp_shapes": false,
         "apply_defaults_to_fp_text": false,
@@ -58,7 +60,56 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "courtyards_overlap|100975000|-57615000|a976a1d3-5169-4fbd-bfa9-c4ecf34158e6|fac41a41-4c7d-402e-ad33-f117554e51d5",
+          ""
+        ],
+        [
+          "courtyards_overlap|101525000|-58730000|237ff2ae-a2ed-4cd2-a1af-7f9f9fc4fef0|98ab2d26-6d1f-4344-86bc-bc2356502c1d",
+          ""
+        ],
+        [
+          "courtyards_overlap|104475000|-57615000|98ab2d26-6d1f-4344-86bc-bc2356502c1d|a976a1d3-5169-4fbd-bfa9-c4ecf34158e6",
+          ""
+        ],
+        [
+          "courtyards_overlap|107400000|-55052250|a976a1d3-5169-4fbd-bfa9-c4ecf34158e6|d1eb54b1-a2de-404e-9382-e6ca69b9db69",
+          ""
+        ],
+        [
+          "courtyards_overlap|110655000|-56045000|d1eb54b1-a2de-404e-9382-e6ca69b9db69|f71b7f57-4884-4316-a5ee-09bb6be8c9f7",
+          ""
+        ],
+        [
+          "courtyards_overlap|43287851|-30545393|53426d1f-6b66-440c-8f82-662c544f08f3|5b2952eb-14eb-40fc-bc83-752e0f550ec4",
+          ""
+        ],
+        [
+          "courtyards_overlap|45625000|-25502696|29acdffc-59c2-4aef-89d4-f4ab99cb5cc3|a3645cf2-a479-41f2-92be-a56ae0e38f83",
+          ""
+        ],
+        [
+          "courtyards_overlap|91955000|-58695000|237ff2ae-a2ed-4cd2-a1af-7f9f9fc4fef0|465749fc-afd1-4555-af25-d3e2a6db5591",
+          ""
+        ],
+        [
+          "courtyards_overlap|94445000|-57615000|465749fc-afd1-4555-af25-d3e2a6db5591|a976a1d3-5169-4fbd-bfa9-c4ecf34158e6",
+          ""
+        ],
+        [
+          "courtyards_overlap|95055000|-58695000|237ff2ae-a2ed-4cd2-a1af-7f9f9fc4fef0|507fb35a-98cd-40be-98fe-12ed001f9741",
+          ""
+        ],
+        [
+          "courtyards_overlap|97545000|-57615000|507fb35a-98cd-40be-98fe-12ed001f9741|a976a1d3-5169-4fbd-bfa9-c4ecf34158e6",
+          ""
+        ],
+        [
+          "courtyards_overlap|98025000|-58825000|237ff2ae-a2ed-4cd2-a1af-7f9f9fc4fef0|fac41a41-4c7d-402e-ad33-f117554e51d5",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -77,6 +128,7 @@
         "extra_footprint": "warning",
         "footprint": "error",
         "footprint_filters_mismatch": "ignore",
+        "footprint_symbol_field_mismatch": "warning",
         "footprint_symbol_mismatch": "warning",
         "footprint_type_mismatch": "ignore",
         "hole_clearance": "error",
@@ -95,6 +147,7 @@
         "mirrored_text_on_front_layer": "warning",
         "missing_courtyard": "ignore",
         "missing_footprint": "warning",
+        "missing_tuning_profile": "warning",
         "net_conflict": "warning",
         "nonmirrored_text_on_back_layer": "warning",
         "npth_inside_courtyard": "ignore",
@@ -114,9 +167,12 @@
         "too_many_vias": "error",
         "track_angle": "error",
         "track_dangling": "warning",
+        "track_not_centered_on_via": "ignore",
+        "track_on_post_machined_layer": "error",
         "track_segment_length": "error",
         "track_width": "error",
         "tracks_crossing": "error",
+        "tuning_profile_track_geometries": "ignore",
         "unconnected_items": "error",
         "unresolved_variable": "error",
         "via_dangling": "warning",
@@ -124,7 +180,7 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.0,
+        "min_clearance": 0.15,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 0.4,
         "min_groove_width": 0.0,
@@ -137,9 +193,9 @@
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.0,
-        "min_via_annular_width": 0.1,
-        "min_via_diameter": 0.5,
+        "min_track_width": 0.15,
+        "min_via_annular_width": 0.15,
+        "min_via_diameter": 0.6,
         "solder_mask_to_copper_clearance": 0.005,
         "use_height_for_length_calcs": true
       },
@@ -225,22 +281,42 @@
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
+      "bom_rev": "",
       "dist": "",
       "distpn": "",
       "internal_id": "",
       "mfg": "",
-      "mpn": ""
+      "mpn": "",
+      "sch_revision": "${REVISION}"
     },
     "layer_pairs": [],
     "layer_presets": [],
     "viewports": []
   },
   "boards": [],
+  "component_class_settings": {
+    "assignments": [],
+    "meta": {
+      "version": 0
+    },
+    "sheet_component_classes": {
+      "enabled": false
+    }
+  },
   "cvpcb": {
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      [
+        "power_pin_not_driven|2705100|304800|b93e0b72-6672-4481-85cd-45c7c5134dc5|00000000-0000-0000-0000-000000000000|/784b2eb1-81e1-40bd-9596-0b069d459b8a|/784b2eb1-81e1-40bd-9596-0b069d459b8a|",
+        ""
+      ],
+      [
+        "power_pin_not_driven|2997200|304800|6f647543-4b1b-4c89-9617-65984c6c28cd|00000000-0000-0000-0000-000000000000|/784b2eb1-81e1-40bd-9596-0b069d459b8a|/784b2eb1-81e1-40bd-9596-0b069d459b8a|",
+        ""
+      ]
+    ],
     "meta": {
       "version": 0
     },
@@ -426,11 +502,14 @@
       "duplicate_sheet_names": "error",
       "endpoint_off_grid": "warning",
       "extra_units": "error",
+      "field_name_whitespace": "warning",
       "footprint_filter": "ignore",
       "footprint_link_issues": "warning",
       "four_way_junction": "ignore",
       "global_label_dangling": "warning",
+      "ground_pin_not_ground": "warning",
       "hier_label_mismatch": "error",
+      "isolated_pin_label": "warning",
       "label_dangling": "error",
       "label_multiple_wires": "warning",
       "lib_symbol_issues": "warning",
@@ -445,14 +524,15 @@
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
       "pin_not_driven": "error",
-      "pin_to_pin": "warning",
+      "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "same_local_global_label": "warning",
       "similar_label_and_power": "warning",
       "similar_labels": "warning",
       "similar_power": "warning",
       "simulation_model_issue": "ignore",
-      "single_global_label": "ignore",
+      "single_global_label": "warning",
+      "stacked_pin_name": "warning",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
       "undefined_netclass": "error",
@@ -485,31 +565,47 @@
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.15,
+        "tuning_profile": "",
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
       },
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "Power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.4,
+        "tuning_profile": "",
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "clearance": 0.23,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.158,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "USB",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.158,
+        "tuning_profile": "USB",
+        "via_diameter": 0.6,
+        "via_drill": 0.3
       }
     ],
     "meta": {
-      "version": 4
+      "version": 5
     },
     "net_colors": null,
     "netclass_assignments": null,
@@ -565,6 +661,14 @@
       {
         "netclass": "Power",
         "pattern": "/NO4"
+      },
+      {
+        "netclass": "USB",
+        "pattern": "*D+"
+      },
+      {
+        "netclass": "USB",
+        "pattern": "*D-"
       }
     ]
   },
@@ -584,6 +688,10 @@
   },
   "schematic": {
     "annotate_start_num": 0,
+    "annotation": {
+      "method": 0,
+      "sort_order": 0
+    },
     "bom_export_filename": "20251119-BOM-${PROJECTNAME}.csv",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
@@ -595,7 +703,199 @@
       "ref_range_delimiter": "",
       "string_delimiter": "\""
     },
-    "bom_presets": [],
+    "bom_presets": [
+      {
+        "exclude_dnp": false,
+        "fields_ordered": [
+          {
+            "group_by": false,
+            "label": "Reference",
+            "name": "Reference",
+            "show": true
+          },
+          {
+            "group_by": true,
+            "label": "Value",
+            "name": "Value",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "Datasheet",
+            "name": "Datasheet",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "Footprint",
+            "name": "Footprint",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "Qty",
+            "name": "${QUANTITY}",
+            "show": true
+          },
+          {
+            "group_by": true,
+            "label": "DNP",
+            "name": "${DNP}",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "#",
+            "name": "${ITEM_NUMBER}",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Availability",
+            "name": "Availability",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Check_prices",
+            "name": "Check_prices",
+            "show": false
+          },
+          {
+            "group_by": true,
+            "label": "LCSC Part #",
+            "name": "LCSC Part #",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "MANUFACTURER",
+            "name": "MANUFACTURER",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "MAXIMUM_PACKAGE_HEIGHT",
+            "name": "MAXIMUM_PACKAGE_HEIGHT",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "MF",
+            "name": "MF",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "MP",
+            "name": "MP",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Manufacturer",
+            "name": "Manufacturer",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Mouser Part #",
+            "name": "Mouser Part #",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "PARTREV",
+            "name": "PARTREV",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Package",
+            "name": "Package",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "PartNumber",
+            "name": "PartNumber",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Price",
+            "name": "Price",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "SNAPEDA_PN",
+            "name": "SNAPEDA_PN",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "STANDARD",
+            "name": "STANDARD",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Sim.Device",
+            "name": "Sim.Device",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Sim.Pins",
+            "name": "Sim.Pins",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Sim.Type",
+            "name": "Sim.Type",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "SnapEDA_Link",
+            "name": "SnapEDA_Link",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Description",
+            "name": "Description",
+            "show": true
+          },
+          {
+            "group_by": true,
+            "label": "LCSC",
+            "name": "LCSC",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "Tolerance",
+            "name": "Tolerance",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "Manufacturer Part",
+            "name": "Manufacturer Part",
+            "show": true
+          }
+        ],
+        "filter_string": "",
+        "group_symbols": true,
+        "include_excluded_from_bom": false,
+        "name": "pinbot lcsc",
+        "sort_asc": true,
+        "sort_field": "Reference"
+      }
+    ],
     "bom_settings": {
       "exclude_dnp": false,
       "fields_ordered": [
@@ -615,7 +915,7 @@
           "group_by": false,
           "label": "Datasheet",
           "name": "Datasheet",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
@@ -654,7 +954,7 @@
           "show": false
         },
         {
-          "group_by": false,
+          "group_by": true,
           "label": "LCSC Part #",
           "name": "LCSC Part #",
           "show": true
@@ -705,7 +1005,7 @@
           "group_by": false,
           "label": "Package",
           "name": "Package",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
@@ -759,6 +1059,30 @@
           "group_by": false,
           "label": "Description",
           "name": "Description",
+          "show": true
+        },
+        {
+          "group_by": true,
+          "label": "LCSC",
+          "name": "LCSC",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Tolerance",
+          "name": "Tolerance",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer Part",
+          "name": "Manufacturer Part",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Silk",
+          "name": "Silk",
           "show": false
         }
       ],
@@ -769,6 +1093,7 @@
       "sort_asc": true,
       "sort_field": "Reference"
     },
+    "bus_aliases": {},
     "connection_grid_size": 50.0,
     "drawing": {
       "dashed_lines_dash_length_ratio": 12.0,
@@ -776,10 +1101,11 @@
       "default_line_thickness": 6.0,
       "default_text_size": 50.0,
       "field_names": [],
-      "intersheets_ref_own_page": false,
+      "hop_over_size_choice": 0,
+      "intersheets_ref_own_page": true,
       "intersheets_ref_prefix": "",
       "intersheets_ref_short": false,
-      "intersheets_ref_show": false,
+      "intersheets_ref_show": true,
       "intersheets_ref_suffix": "",
       "junction_size_choice": 3,
       "label_size_ratio": 0.375,
@@ -799,6 +1125,7 @@
     "net_format_name": "",
     "page_layout_descr_file": "",
     "plot_directory": "../docs/",
+    "reuse_designators": true,
     "space_save_all_events": true,
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
@@ -807,13 +1134,84 @@
     "spice_save_all_dissipations": false,
     "spice_save_all_voltages": false,
     "subpart_first_id": 65,
-    "subpart_id_separator": 0
+    "subpart_id_separator": 0,
+    "top_level_sheets": [
+      {
+        "filename": "pinbot-carrier.kicad_sch",
+        "name": "pinbot-carrier",
+        "uuid": "784b2eb1-81e1-40bd-9596-0b069d459b8a"
+      }
+    ],
+    "used_designators": "D56",
+    "variants": []
   },
   "sheets": [
     [
       "784b2eb1-81e1-40bd-9596-0b069d459b8a",
-      "Root"
+      "pinbot-carrier"
+    ],
+    [
+      "4d6e51d0-d4b0-4975-af72-0cc928f62710",
+      "RELAY4"
+    ],
+    [
+      "675392c5-fd40-4cbe-ab59-2a909b7bb725",
+      "ADC0"
+    ],
+    [
+      "49d155d0-17a0-486f-be09-4b3122450fcc",
+      "ADC1"
+    ],
+    [
+      "2562a507-6874-4076-b302-3c1cb163a6e1",
+      "RELAY1"
+    ],
+    [
+      "2d853f44-69b3-4090-b4cf-83ac42ca32c3",
+      "RELAY2"
+    ],
+    [
+      "bddbbda0-5a6b-43cd-93f5-598ffe3d4043",
+      "RELAY3"
+    ],
+    [
+      "ea5b0754-ef06-482c-8d96-a687450b26a9",
+      "USBHUB"
+    ],
+    [
+      "d2cdde5c-6a63-4ec5-871d-dec12d4327e9",
+      "Protection"
     ]
   ],
-  "text_variables": {}
+  "text_variables": {
+    "DATE": "",
+    "REVISION": "0.22",
+    "URL": "https://github.com/Pinbot-factory",
+    "board name": ""
+  },
+  "tuning_profiles": {
+    "meta": {
+      "version": 0
+    },
+    "tuning_profiles_impedance_geometric": [
+      {
+        "enable_time_domain_tuning": true,
+        "layer_entries": [
+          {
+            "bottom_reference_layer": "In1.Cu",
+            "delay": 5754000,
+            "diff_pair_gap": 200000,
+            "signal_layer": "F.Cu",
+            "top_reference_layer": "UNDEFINED",
+            "width": 158000
+          }
+        ],
+        "profile_name": "USB",
+        "target_impedance": 90.0,
+        "type": 1,
+        "via_overrides": [],
+        "via_prop_delay": 0
+      }
+    ]
+  }
 }
