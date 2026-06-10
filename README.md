@@ -1,7 +1,7 @@
 **Pinbot** is an open-source platform for quickly building test jigs for electronics QA. The platform is made up of [mechanical fixture](), control electronics, jig-level software and backend to store all test results.
 
 ## Pinbot electronics
-This repo is dedicated for electronics of a typical Pinbot jig. At a moment it is a compact carrier board for Raspberry Pi Zero 2. The board also can be used with regular size RPis thru HAT connector (J3).
+This repo is dedicated for electronics of a typical Pinbot jig. At a moment it is a compact carrier board for Raspberry Pi Zero [2](https://www.jeffgeerling.com/blog/2021/look-inside-raspberry-pi-zero-2-w-and-rp3a0-au/). The board also can be used with regular size RPis thru HAT connector (J3).
 
 **It features:**
 - 16 channels GPIO (0-24V) thru TCA9535
@@ -16,7 +16,7 @@ This repo is dedicated for electronics of a typical Pinbot jig. At a moment it i
 - USB-C for power supply
 - User leds, test points, basic signal lines protection and more.
 
-Carrier board is 114x65mm to fit perfectly into [Pinbot's chassis](). You can use it as a test engine for a small projects and supply them directly with up to 5V@1A power.
+Carrier board is 114x65mm to fit perfectly into [Pinbot's chassis](). You can use it as a test engine for a small projects and supply them (as well as connected USB periphery) with 5V.
 
 ![Pinbot PCBA](assets/pinbot-carrier-r02.jpg)
 

@@ -1,4 +1,5 @@
 pinbot-carrier-backups/
+.history/
 fp-info-cache
 fabrication-toolkit-options.json
 *.lck
